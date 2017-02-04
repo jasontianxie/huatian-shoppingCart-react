@@ -18,7 +18,7 @@
 //     </div>);
 //   }
 // });
-import * as React from 'react';//注意：如果该组件用到了React变量，则组件中要引入React，否则报错
+import * as React from 'react';//注意：如果该组件用到了React变量，则组件中要引入React，否则报错。from后面的路径，可以直接写模块名，则默认会自动查找node_modules中的相关模块，如果不是直接写的模块名，则要写成相对路径或者绝对路径。相对路径本文件夹用./表示。上一级文件夹用../表示
 export class Head extends React.Component {
   constructor(props) {
     super(props);

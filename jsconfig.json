@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": [
+        "node_modules",
+        ".history",
+        ".vscode",
+        "dist",
+        "typings"
+    ],
+    "files": [
+        "./webpack.config.js",
+        "./containers/index.jsx"
+    ]
+}
