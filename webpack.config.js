@@ -1,9 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'containers');
 const nodeModules = path.join(__dirname, 'node_modules');
+let extractCSS = new ExtractTextPlugin('index.css');
 module.exports = {
   entry: {
     app: path.resolve(APP_PATH, 'index.jsx')
@@ -27,7 +29,7 @@ module.exports = {
       }
     },{
       test:/\.scss$/,
-      loader:['style', 'css', 'sass'],
+      loader:extractCSS.extract(['css-loader','sass-loader']),
       include:/containers/
     }]
   },
@@ -36,5 +38,6 @@ module.exports = {
     extensions: ['','.web.js', '.js', '.jsx']//配置扩展名
   },
   devtool:"#cheap-module-eval-source-map",//配置source map
-  devtoolModuleFilenameTemplate:"webpack:///[absolute-resource-path]"
+  devtoolModuleFilenameTemplate:"webpack:///[absolute-resource-path]",
+  plugins:[extractCSS]
 };
